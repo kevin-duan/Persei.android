@@ -1,6 +1,7 @@
 package com.cjj;
 
 import android.content.Context;
+import android.content.res.TypedArray;
 import android.graphics.Color;
 import android.os.Build;
 import android.support.v4.view.ViewCompat;
@@ -24,7 +25,7 @@ public class PerseiLayout extends FrameLayout {
 
     protected FrameLayout mHeadLayout;
 
-    protected int DEFAULT_HEIGHT = 120;
+    protected int DEFAULT_HEIGHT = 100;
 
     protected float mHeadHeight;
 
@@ -59,6 +60,9 @@ public class PerseiLayout extends FrameLayout {
         if (getChildCount() > 1) {
             throw new RuntimeException("can only have one child widget");
         }
+        TypedArray t = context.obtainStyledAttributes(attrs,R.styleable.PerseiLayout,defStyleAttr,0);
+        mHeadHeight = t.getInteger(R.styleable.PerseiLayout_menu_height, Util.dip2px(getContext(),DEFAULT_HEIGHT));
+        t.recycle();
     }
 
     @Override
@@ -70,16 +74,11 @@ public class PerseiLayout extends FrameLayout {
         FrameLayout headViewLayout = new FrameLayout(context);
         LayoutParams layoutParams = new LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, 0);
         layoutParams.gravity = Gravity.TOP;
-        headViewLayout.setBackgroundColor(Color.rgb(51,51,76));
         headViewLayout.setLayoutParams(layoutParams);
         mHeadLayout = headViewLayout;
         this.addView(mHeadLayout);
 
-
         mChildView = getChildAt(0);
-
-        mHeadHeight = Util.dip2px(getContext(),DEFAULT_HEIGHT);
-
     }
     @Override
     public boolean onInterceptTouchEvent(MotionEvent ev) {
@@ -93,9 +92,6 @@ public class PerseiLayout extends FrameLayout {
                 float currentY = ev.getY();
                 float dy = currentY - mTouchY;
                 if (dy > 0 && !canChildScrollUp()) {
-                    /**
-                     * 开始拉
-                     */
                     return true;
                 }
                 break;
@@ -188,12 +184,12 @@ public class PerseiLayout extends FrameLayout {
        this.postDelayed(new Runnable() {
            @Override
            public void run() {
-               finishRefreshing();
+               closeMenuing();
            }
        },200);
     }
 
-    private void finishRefreshing() {
+    private void closeMenuing() {
         if (mChildView != null) {
             ViewPropertyAnimatorCompat viewPropertyAnimatorCompat = ViewCompat.animate(mChildView);
             viewPropertyAnimatorCompat.setDuration(200);

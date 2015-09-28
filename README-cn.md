@@ -1,42 +1,34 @@
 #Persei
 ==========================
-[中文版文档](https://github.com/android-cjj/Persei.android/blob/master/README-cn.md)
----------------
 
-As we know,Yalantis company wrote some excellent open source libraries, especially of the animation is very beautiful.If you don't believe,you can go and see [Yalantis](https://github.com/Yalantis).I saw one of them called  [Persei](https://github.com/Yalantis/Persei) library ,it's a pity that written in Swift，is not written in Java.also you can go to dribble website and see the design picture.
+Yalantis公司出品的开源库，动画这块做的非常漂亮，如果你不信的话，可以去瞧瞧[Yalantis](https://github.com/Yalantis)，我在其中看到了一个名为[Persei](https://github.com/Yalantis/Persei)的开源库，用Swift写的，查了下，竟然没有android的版本的，呵呵然后就想写写了，毕竟看起来很炫酷...
 
+你也可以去dribble网站看看原设计图：
 [Top Menu Animation](https://dribbble.com/shots/1706861-Top-Menu-Animation?list=users&offset=23)
 
 ![](https://github.com/Yalantis/Persei/raw/master/Assets/animation.gif)
 
-Yes, that is design, now need to start coding...
-
-We need to get the effect of the picture below
+我们心中需要的是如下图的结果
 
 ![](http://img.55bbs.com/10_500x2000/974/li5c2kC78GdkQ.jpg)
 
-But, I made into the effect of the picture below
+但是，我越做越成了。。。看下图把T_T
 
 ![](http://www.ename.cn/data/article/201412/03/1417588595.jpg)
 
-I want to give up，because I can't do the same design.Think about it，Can I go to the coding according to my style,the effect of the picture below
+本来觉得和设计图不一样，要不就废弃了，想想，改改，至少也要改成下面这样子的
 
 ![](http://img4.duitang.com/uploads/item/201403/04/20140304122431_XMCuj.thumb.600_0.jpeg)
 
-Just a joke,don't be too care about it;
+最后效果是这样的：
 
-The Android implementation of Persei
--------------------------------------------------------
-How it looks
---------------------------------
 ![](http://www.apkbus.com/data/attachment/forum/201509/25/144242qv69abhu6n9vav66.gif)
 
 ![](http://www.apkbus.com/data/attachment/forum/201509/24/141035ugk917wf899f4gi8.gif)
 
+以上只是开个玩笑，切勿当真...
 
-
-
-How to use
+用法
 ----------------------------------------
 Add dependency.
 
@@ -46,8 +38,7 @@ dependencies {
 }
 ```
 
-
-in layout.xml
+在xml文件中添加
 ```xml
 <com.cjj.PerseiLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
@@ -61,13 +52,12 @@ in layout.xml
 
 </com.cjj.PerseiLayout>
 ```
-
-in java code,get instance and set header view
+实例化它并设置头部View
 ```java
  PerseiLayout perseiLayout = (PerseiLayout) this.findViewById(R.id.persei);
  perseiLayout.setHeaderView(...);
  
- perseiLayout.closeMenu();//close menu
+ perseiLayout.closeMenu();//关闭菜单
  ```
  
  
@@ -75,11 +65,14 @@ Thanks
 =======
  [Yalantis/Persei](https://github.com/Yalantis/Persei)
  
- AT LAST
+我们聊聊天，喝喝白开水
+-----------------------------
+刚建了个[github小伙伴交流群](http://t.cn/RyiVjnv)(477826523),有兴趣的朋友可以加进来的...小小要求：github有至少7个关注者或者开源库有7颗星星的...
+
+写在最后
 ==============================================================
-If you want to support me,you can follow me on GitHub:
+在GitHub follow 我就是对我最大的支持:
 [https://github.com/android-cjj](https://github.com/android-cjj).
- 
  
 License
 =======
@@ -102,7 +95,7 @@ License
 	IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
 	FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
 	AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-	LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+	LIABILITY,WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 	OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 	SOFTWARE.
 
